@@ -1,0 +1,13 @@
+\documentclass{article}
+
+\title{Project Euler 546 - The Floor's Revenge}
+\begin{document}
+\maketitle
+
+\section{Observations}
+Note that $f_k(n)$ is exactly equal to the number of $k$-ary partitions of $n$.  Looking at OEIS / empirical data, we find that
+\[
+ f_k(n) = f_k(n-1) + f_k \left (\left \lfloor \frac{n}{k} \right \rfloor \right)
+\]
+
+\end{document}

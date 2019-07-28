@@ -1,0 +1,171 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4962,        161]
+NotebookOptionsPosition[      4524,        141]
+NotebookOutlinePosition[      4881,        157]
+CellTagsIndexPosition[      4838,        154]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Kempner", "[", "1", "]"}], ":=", "1"}], ";", 
+   RowBox[{
+    RowBox[{"Kempner", "[", "n_", "]"}], ":=", 
+    RowBox[{"Max", "[", 
+     RowBox[{"Kempner", "@@@", 
+      RowBox[{"FactorInteger", "[", "n", "]"}]}], "]"}]}], ";", 
+   RowBox[{
+    RowBox[{"Kempner", "[", 
+     RowBox[{"p_", ",", "1"}], "]"}], ":=", "p"}], ";", 
+   RowBox[{
+    RowBox[{"Kempner", "[", 
+     RowBox[{"p_", ",", "alpha_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"Kempner", "[", 
+      RowBox[{"p", ",", "alpha"}], "]"}], "=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", ",", "k", ",", "r", ",", "i", ",", "nu", ",", 
+         RowBox[{"k0", "=", 
+          RowBox[{"alpha", 
+           RowBox[{"(", 
+            RowBox[{"p", "-", "1"}], ")"}]}]}]}], "}"}], ",", 
+       RowBox[{
+        RowBox[{"i", "=", 
+         RowBox[{"nu", "=", 
+          RowBox[{"Floor", "[", 
+           RowBox[{"Log", "[", 
+            RowBox[{"p", ",", 
+             RowBox[{"1", "+", "k0"}]}], "]"}], "]"}]}]}], ";", 
+        RowBox[{
+         RowBox[{"a", "[", "1", "]"}], "=", "1"}], ";", 
+        RowBox[{
+         RowBox[{"a", "[", "n_", "]"}], ":=", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"p", "^", "n"}], "-", "1"}], ")"}], "/", 
+          RowBox[{"(", 
+           RowBox[{"p", "-", "1"}], ")"}]}]}], ";", 
+        RowBox[{
+         RowBox[{"k", "[", "nu", "]"}], "=", 
+         RowBox[{"Quotient", "[", 
+          RowBox[{"alpha", ",", 
+           RowBox[{"a", "[", "nu", "]"}]}], "]"}]}], ";", 
+        RowBox[{
+         RowBox[{"r", "[", "nu", "]"}], "=", 
+         RowBox[{"alpha", "-", 
+          RowBox[{
+           RowBox[{"k", "[", "nu", "]"}], 
+           RowBox[{"a", "[", "nu", "]"}]}]}]}], ";", 
+        RowBox[{"While", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"r", "[", "i", "]"}], ">", "0"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"k", "[", 
+             RowBox[{"i", "-", "1"}], "]"}], "=", 
+            RowBox[{"Quotient", "[", 
+             RowBox[{
+              RowBox[{"r", "[", "i", "]"}], ",", 
+              RowBox[{"a", "[", 
+               RowBox[{"i", "-", "1"}], "]"}]}], "]"}]}], ";", 
+           RowBox[{
+            RowBox[{"r", "[", 
+             RowBox[{"i", "-", "1"}], "]"}], "=", 
+            RowBox[{
+             RowBox[{"r", "[", "i", "]"}], "-", 
+             RowBox[{
+              RowBox[{"k", "[", 
+               RowBox[{"i", "-", "1"}], "]"}], 
+              RowBox[{"a", "[", 
+               RowBox[{"i", "-", "1"}], "]"}]}]}]}], ";", 
+           RowBox[{"i", "--"}]}]}], "]"}], ";", 
+        RowBox[{"k0", "+", 
+         RowBox[{"Plus", "@@", 
+          RowBox[{"k", "/@", 
+           RowBox[{"Range", "[", 
+            RowBox[{"i", ",", "nu"}], "]"}]}]}]}]}]}], "]"}]}]}]}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.665645451644017*^9, 3.665645459449267*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"sum", "=", "0"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Monitor", "[", 
+     RowBox[{
+      RowBox[{"Do", "[", 
+       RowBox[{
+        RowBox[{"sum", "=", 
+         RowBox[{"sum", "+", 
+          RowBox[{"Kempner", "[", "n", "]"}]}]}], ",", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "2", ",", 
+          RowBox[{"10", "^", "8"}]}], "}"}]}], "]"}], ",", "n"}], "]"}], ";", 
+    
+    RowBox[{"Print", "[", "sum", "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.66564545625844*^9, 3.6656455266600657`*^9}, {
+  3.6656456088049803`*^9, 3.6656456357311497`*^9}, {3.665646141355196*^9, 
+  3.665646159281508*^9}}],
+
+Cell[BoxData["476001479068717"], "Print",
+ CellChangeTimes->{3.665646944949603*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.665645611673745*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.665645599996274*^9}]
+},
+WindowSize->{1440, 771},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 10, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2985, 85, 233, "Input"],
+Cell[CellGroupData[{
+Cell[3568, 109, 712, 20, 63, "Input"],
+Cell[4283, 131, 83, 1, 21, "Print"]
+}, Open  ]],
+Cell[4381, 135, 68, 1, 28, "Input"],
+Cell[4452, 138, 68, 1, 28, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+
