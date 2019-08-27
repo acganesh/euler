@@ -1,6 +1,6 @@
 # project-euler
 
-Solutions to various Project Euler problems.  Code is primarily in Python, but there are a few solutions in various other languages (Haskell, Clojure, Rust, C++, etc.)  
+Solutions to various Project Euler problems.  Code is primarily in Python and Haskell, but there are a few solutions in various other languages (Clojure, Rust, C++, etc.)  
 
 ![Project Euler badge](https://projecteuler.net/profile/acganesh.png)
 
